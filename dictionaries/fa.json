@@ -1,0 +1,38 @@
+{
+	"navigation": {
+		"home": "خانه",
+		"ageGroups": "رده سنی",
+		"facilities": "امکانات",
+		"about": "درباره ما",
+		"gallery": "گالری",
+		"enroll": "پذیرش",
+		"contact": "تماس با ما",
+		"dashboard": "حساب کاربری"
+	},
+	"hero": {
+		"title": "کودکستان فیلاک",
+		"description": "آغاز مسیر رشد و شکوفایی کودکان"
+	},
+	"footer": {
+		"pagesTitle": "صفحات",
+		"facilitiesTitle": "امکانات",
+		"facilities": {
+			"qualifiedStaff": "کادر مجرب",
+			"safetyMonitoring": "سیستم نظارتی",
+			"artCreativity": "هنر و خلاقیت",
+			"indoorPlayroom": "سالن بازی سرپوشیده",
+			"outdoorPlayground": "فضای باز بازی",
+			"kitchenDining": "آشپزخانه و سالن غذاخوری",
+			"restArea": "اتاق استراحت",
+			"labLibrary": "آزمایشگاه و کتابخانه",
+			"storytellingHall": "سالن قصه‌گویی",
+			"mediaRoom": "اتاق تصویر"
+		},
+		"address": {
+			"name": "کودکستان فیلاک",
+			"location": "اصفهان، آپادانا دوم، پلاک ۱۱۸",
+			"phone": "۰۳۱-۳۶۴۱۲۴۱۷"
+		},
+		"rights": "تمامی حقوق محفوظ است."
+	}
+}

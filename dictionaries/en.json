@@ -1,0 +1,38 @@
+{
+	"navigation": {
+		"home": "Home",
+		"ageGroups": "Age Groups",
+		"facilities": "Facilities",
+		"about": "About",
+		"gallery": "Gallery",
+		"enroll": "Enroll",
+		"contact": "Contact",
+		"dashboard": "Dashboard"
+	},
+	"hero": {
+		"title": "Filak Kindergarten",
+		"description": "The Beginning of Children's Growth and Flourishing"
+	},
+	"footer": {
+		"pagesTitle": "Explore",
+		"facilitiesTitle": "Facilities",
+		"facilities": {
+			"qualifiedStaff": "Qualified Staff",
+			"safetyMonitoring": "Safety & Monitoring",
+			"artCreativity": "Art & Creativity",
+			"indoorPlayroom": "Indoor Playroom",
+			"outdoorPlayground": "Outdoor Playground",
+			"kitchenDining": "Kitchen & Dining",
+			"restArea": "Rest Area",
+			"labLibrary": "Lab & Library",
+			"storytellingHall": "Storytelling Hall",
+			"mediaRoom": "Media Room"
+		},
+		"address": {
+			"name": "Filak Kindergarten",
+			"location": "Isfahan, Apadana 2nd, Building 118",
+			"phone": "031-36412417"
+		},
+		"rights": "All Rights Reserved."
+	}
+}
