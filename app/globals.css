@@ -2,8 +2,9 @@
 
 :root {
 	/* Surface */
-	--bg: var(--color-stone-100);
-	--bg-secondary: var(--color-stone-50);
+	--bg: var(--color-olive-200);
+	--bg-secondary: var(--color-olive-50);
+	--bg-tertiary: var(--color-olive-100);
 
 	/* Content */
 	--fg: var(--color-gray-800);
@@ -19,11 +20,26 @@
 
 	/* Special */
 	--nav: rgb(235 235 235 / 60%);
+
+	/* Typography */
+	--text-heading-sm-size: 24px;
+	--text-heading-sm-leading: 32px;
+	--text-heading-md-size: 32px;
+	--text-heading-md-leading: 40px;
+	--text-heading-lg-size: 48px;
+	--text-heading-lg-leading: 56px;
+	--text-body-sm-size: 16px;
+	--text-body-sm-leading: 28px;
+	--text-body-md-size: 20px;
+	--text-body-md-leading: 32px;
+	--font-subtle-weight: 300;
+	--font-strong-weight: 600;
 }
 
 @theme inline {
 	--color-bg: var(--bg);
 	--color-bg-secondary: var(--bg-secondary);
+	--color-bg-tertiary: var(--bg-tertiary);
 
 	--color-fg: var(--fg);
 	--color-fg-subtle: var(--fg-subtle);
@@ -39,73 +55,53 @@
 
 /* Heading */
 @utility text-heading-sm {
-	font-size: 24px;
-	line-height: 32px;
+	font-size: var(--text-heading-sm-size);
+	line-height: var(--text-heading-sm-leading);
 }
 
 @utility text-heading-md {
-	font-size: 32px;
-	line-height: 1;
+	font-size: var(--text-heading-md-size);
+	line-height: var(--text-heading-md-leading);
 }
 
 @utility text-heading-lg {
-	font-size: 48px;
-	line-height: 56px;
+	font-size: var(--text-heading-lg-size);
+	line-height: var(--text-heading-lg-leading);
 }
 
 /* Body */
 @utility text-body-sm {
-	font-size: 16px;
-	line-height: 28px;
+	font-size: var(--text-body-sm-size);
+	line-height: var(--text-body-sm-leading);
 }
 
 @utility text-body-md {
-	font-size: 20px;
-	line-height: 32px;
+	font-size: var(--text-body-md-size);
+	line-height: var(--text-body-md-leading);
 }
 
 /* Weight */
 @utility font-subtle {
-	font-weight: 300;
+	font-weight: var(--font-subtle-weight);
 }
 
 @utility font-strong {
-	font-weight: 600;
+	font-weight: var(--font-strong-weight);
 }
 
 :lang(fa) {
-	.text-heading-sm {
-		font-size: 32px;
-		line-height: 1;
-	}
-
-	.text-heading-md {
-		font-size: 40px;
-		line-height: 1;
-	}
-
-	.text-heading-lg {
-		font-size: 56px;
-		line-height: 1;
-	}
-
-	.text-body-sm {
-		font-size: 20px;
-		line-height: 28px;
-	}
-
-	.text-body-md {
-		font-size: 24px;
-		line-height: 32px;
-	}
-
-	.font-subtle {
-		font-weight: 400;
-	}
-
-	.font-strong {
-		font-weight: 700;
-	}
+	--text-heading-sm-size: 32px;
+	--text-heading-sm-leading: 32px;
+	--text-heading-md-size: 40px;
+	--text-heading-md-leading: 48px;
+	--text-heading-lg-size: 56px;
+	--text-heading-lg-leading: 56px;
+	--text-body-sm-size: 20px;
+	--text-body-sm-leading: 28px;
+	--text-body-md-size: 24px;
+	--text-body-md-leading: 32px;
+	--font-subtle-weight: 400;
+	--font-strong-weight: 700;
 }
 
 @theme {
@@ -123,4 +119,14 @@ body {
 	background: var(--background);
 	color: var(--foreground);
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+button:disabled,
+a[aria-disabled="true"] {
+	cursor: not-allowed;
 }

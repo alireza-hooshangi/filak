@@ -37,21 +37,20 @@ export default function AgeGroupsContent({
 	content,
 }: AgeGroupsContentProps) {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [direction, setDirection] = useState(1);
 	const reduceMotion = useReducedMotion();
 
 	const activeGroup = content.groups[activeIndex];
 	const isRtl = lang === "fa";
+	const leadIntro = content.intro.slice(0, -1);
+	const supportingIntro = content.intro.at(-1);
 
 	const selectGroup = (index: number) => {
 		if (index === activeIndex) return;
 
-		setDirection(index > activeIndex ? 1 : -1);
 		setActiveIndex(index);
 	};
 
 	const previousGroup = () => {
-		setDirection(-1);
 		setActiveIndex(
 			(current) =>
 				(current - 1 + content.groups.length) % content.groups.length,
@@ -59,33 +58,33 @@ export default function AgeGroupsContent({
 	};
 
 	const nextGroup = () => {
-		setDirection(1);
 		setActiveIndex((current) => (current + 1) % content.groups.length);
 	};
 
-	const visualDirection = direction * (isRtl ? -1 : 1);
-
 	const panelVariants = {
-		enter: (movement: number) => ({
+		enter: {
 			opacity: 0,
-			x: reduceMotion ? 0 : movement * 40,
-		}),
+			y: reduceMotion ? 0 : 12,
+			scale: reduceMotion ? 1 : 0.99,
+		},
 		center: {
 			opacity: 1,
-			x: 0,
+			y: 0,
+			scale: 1,
 		},
-		exit: (movement: number) => ({
+		exit: {
 			opacity: 0,
-			x: reduceMotion ? 0 : movement * -40,
-		}),
+			y: reduceMotion ? 0 : -6,
+			scale: reduceMotion ? 1 : 0.995,
+		},
 	};
 
 	return (
-		<section id="age-groups" className="px-5 pt-24 lg:px-12 lg:pt-60">
-			<div className="mx-auto max-w-240 ">
+		<section id="age-groups" className="px-5 pt-24 md:px-8 lg:pt-60">
+			<div className="mx-auto max-w-5xl">
 				{/* Desktop */}
-				<div className="hidden md:flex flex-col rounded-[48px] bg-bg-secondary border border-border-subtle px-12">
-					<header className="flex flex-col py-12 space-y-12">
+				<div className="hidden md:flex flex-col rounded-4xl lg:rounded-[48px] bg-bg-tertiary px-8 lg:px-12">
+					<header className="flex flex-col gap-8 py-8 lg:gap-12 lg:py-12">
 						<div className="grid grid-cols-[1fr_auto] gap-12">
 							<h2
 								className={`text-fg text-heading-lg font-strong`}
@@ -102,14 +101,14 @@ export default function AgeGroupsContent({
 								/>
 							</div>
 						</div>
-						<div className="max-w-6xl space-y-7 text-body-md font-subtle text-fg">
-							{content.intro.map((paragraph) => (
+						<div className="max-w-6xl space-y-7 text-body-sm lg:text-body-md font-subtle text-fg">
+							{leadIntro.map((paragraph) => (
 								<p key={paragraph}>{paragraph}</p>
 							))}
 						</div>
 					</header>
 
-					<div className="flex flex-col py-12 space-y-24 border-t border-border">
+					<div className="flex flex-col py-8 lg:py-12 space-y-16 lg:space-y-24 border-t border-border">
 						<div className="flex items-start justify-between gap-8">
 							<div
 								role="tablist"
@@ -191,26 +190,21 @@ export default function AgeGroupsContent({
 							</div>
 						</div>
 
-						<AnimatePresence
-							initial={false}
-							mode="wait"
-							custom={visualDirection}
-						>
+						<AnimatePresence initial={false} mode="wait">
 							<motion.article
 								key={activeGroup.id}
 								id={`age-panel-${activeGroup.id}`}
 								role="tabpanel"
 								aria-labelledby={`age-tab-${activeGroup.id}`}
-								custom={visualDirection}
 								variants={panelVariants}
 								initial="enter"
 								animate="center"
 								exit="exit"
 								transition={{
-									duration: reduceMotion ? 0 : 0.35,
+									duration: reduceMotion ? 0 : 0.28,
 									ease: [0.22, 1, 0.36, 1],
 								}}
-								className="grid grid-cols-[1fr_336px] justify-between gap-12"
+								className="grid grid-cols-[1fr_384px] justify-between gap-12"
 							>
 								<div
 									className={`flex flex-col justify-between max-w-sm gap-16`}
@@ -228,7 +222,7 @@ export default function AgeGroupsContent({
 									</p>
 								</div>
 
-								<div className="relative aspect-square w-full min-h-full overflow-hidden rounded-3xl">
+								<div className="relative aspect-4/3 w-full min-h-full overflow-hidden rounded-3xl">
 									<Image
 										src={images[activeGroup.id]}
 										alt=""
@@ -243,8 +237,8 @@ export default function AgeGroupsContent({
 				</div>
 
 				{/* Mobile */}
-				<div className="flex flex-col justify-center rounded-3xl bg-bg-secondary border border-border-subtle px-5 md:hidden">
-					<header className="flex flex-col max-w-xl mx-auto w-full justify-center py-16 space-y-10">
+				<div className="flex flex-col justify-center rounded-3xl bg-bg-tertiary md:hidden">
+					<header className="mx-auto flex w-full max-w-xl flex-col gap-10 px-5 py-16">
 						<div className="flex flex-col items-center space-y-5">
 							<div className="relative aspect-square overflow-hidden rounded-full w-full max-w-24">
 								<Image
@@ -262,13 +256,13 @@ export default function AgeGroupsContent({
 							</h2>
 						</div>
 						<div className="max-w-6xl flex flex-col justify-center text-center space-y-5 text-body-sm font-subtle text-fg">
-							{content.intro.map((paragraph) => (
+							{leadIntro.map((paragraph) => (
 								<p key={paragraph}>{paragraph}</p>
 							))}
 						</div>
 					</header>
 
-					<div className="flex flex-col py-5 space-y-5 border-t border-border-subtle overflow-hidden">
+					<div className="flex flex-col p-5 space-y-5 border-t border-border-subtle overflow-hidden">
 						<div className="flex items-start justify-between gap-8">
 							<div className={`flex flex-col space-y-1`}>
 								<h3 className="text-heading-sm font-strong text-fg">
@@ -315,23 +309,18 @@ export default function AgeGroupsContent({
 							</div>
 						</div>
 
-						<AnimatePresence
-							initial={false}
-							mode="wait"
-							custom={visualDirection}
-						>
+						<AnimatePresence initial={false} mode="wait">
 							<motion.article
 								key={activeGroup.id}
 								id={`age-panel-${activeGroup.id}`}
 								role="tabpanel"
 								aria-labelledby={`age-tab-${activeGroup.id}`}
-								custom={visualDirection}
 								variants={panelVariants}
 								initial="enter"
 								animate="center"
 								exit="exit"
 								transition={{
-									duration: reduceMotion ? 0 : 0.35,
+									duration: reduceMotion ? 0 : 0.28,
 									ease: [0.22, 1, 0.36, 1],
 								}}
 								className="flex flex-col space-y-5"
@@ -345,13 +334,13 @@ export default function AgeGroupsContent({
 										className="object-cover"
 									/>
 								</div>
-								<div className={`flex`}>
-									<p className="text-body-sm font-subtle text-fg">
-										{activeGroup.description}
-									</p>
-								</div>
 							</motion.article>
 						</AnimatePresence>
+						<div className={`flex`}>
+							<p className="text-body-sm font-subtle text-fg">
+								{activeGroup.description}
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>

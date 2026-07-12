@@ -27,6 +27,7 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
 
 	return (
 		<div
+			dir="ltr"
 			className="relative grid h-10 w-18 grid-cols-2 rounded-full bg-black/5 p-1"
 			aria-label="Language selector"
 		>

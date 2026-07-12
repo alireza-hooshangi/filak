@@ -3,7 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowLeft, ArrowRight, MenuIcon, XIcon } from "lucide-react";
+import {
+	ChevronLeft,
+	ChevronRight,
+	MenuIcon,
+	XIcon,
+} from "lucide-react";
 
 import Logo from "@/components/branding/Logo";
 import Button from "@/components/ui/Button";
@@ -35,114 +40,79 @@ export default function MobileHeaderMenu({
 	useEffect(() => {
 		if (!isOpen) return;
 
-		const previousOverflow = document.body.style.overflow;
-		document.body.style.overflow = "hidden";
-
 		const closeOnEscape = (event: KeyboardEvent) => {
 			if (event.key === "Escape") setIsOpen(false);
 		};
 
 		window.addEventListener("keydown", closeOnEscape);
 
-		return () => {
-			document.body.style.overflow = previousOverflow;
-			window.removeEventListener("keydown", closeOnEscape);
-		};
+		return () => window.removeEventListener("keydown", closeOnEscape);
 	}, [isOpen]);
 
 	return (
-		<div className="p-5 lg:hidden">
-			<div className="flex w-full items-center justify-between rounded-full border border-border-subtle p-2 backdrop-blur-xl">
-				<Link
-					href={`/${lang}`}
-					aria-label={homeLabel}
-					className="flex transition-opacity hover:opacity-80"
-				>
-					<Logo lang={lang} className="h-8 w-auto" />
-				</Link>
-				<Button
-					lang={lang}
-					size="sm"
-					color="secondary"
-					variant="subtle"
-					iconOnly
-					radius="full"
-					type="button"
-					onClick={() => setIsOpen(true)}
-					aria-label="Open navigation menu"
-					aria-expanded={isOpen}
-					aria-controls="mobile-navigation"
-				>
-					<MenuIcon className="h-5 w-5" />
-				</Button>
-			</div>
-
+		<div className="relative p-5 md:p-8 lg:hidden">
 			<AnimatePresence>
 				{isOpen && (
 					<motion.div
-						id="mobile-navigation"
-						role="dialog"
-						aria-modal="true"
-						aria-label="Mobile navigation"
-						initial={
-							reduceMotion
-								? { opacity: 0 }
-								: {
-										clipPath:
-											"circle(0 at calc(100% - 40px) 40px)",
-									}
-						}
-						animate={
-							reduceMotion
-								? { opacity: 1 }
-								: {
-										clipPath:
-											"circle(150vmax at calc(100% - 40px) 40px)",
-									}
-						}
-						exit={
-							reduceMotion
-								? { opacity: 0 }
-								: {
-										clipPath:
-											"circle(0 at calc(100% - 40px) 40px)",
-									}
-						}
-						transition={{
-							duration: reduceMotion ? 0.15 : 0.55,
-							ease: [0.76, 0, 0.24, 1],
-						}}
-						className="fixed inset-0 z-10 grid min-h-dvh"
+						aria-hidden="true"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: reduceMotion ? 0 : 0.25 }}
+						onClick={() => setIsOpen(false)}
+						className="fixed inset-0 z-0 bg-black/30"
+					/>
+				)}
+			</AnimatePresence>
+			<motion.div
+				initial={false}
+				animate={{ height: isOpen ? "auto" : 80 }}
+				transition={
+					reduceMotion
+						? { duration: 0 }
+						: { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
+				}
+				className="relative z-10 grid w-full items-start overflow-hidden rounded-[20px] bg-bg-secondary backdrop-blur-xl"
+			>
+				<div className="flex w-full justify-between items-center p-5">
+					<Link
+						href={`/${lang}`}
+						aria-label={homeLabel}
+						className="flex transition-opacity hover:opacity-80"
 					>
-						<div className="grid grid-rows-[auto_1fr_auto] items-start bg-violet-300 p-7">
-							<div className="flex items-center justify-between">
-								<Link
-									href={`/${lang}`}
-									aria-label={homeLabel}
-									onClick={() => setIsOpen(false)}
-									className="flex"
-								>
-									<Logo lang={lang} className="h-8 w-auto" />
-								</Link>
-								<Button
-									lang={lang}
-									size="sm"
-									color="secondary"
-									iconOnly
-									radius="full"
-									type="button"
-									onClick={() => setIsOpen(false)}
-									aria-label="Close navigation menu"
-									autoFocus
-								>
-									<XIcon className="h-5 w-5" />
-								</Button>
-							</div>
-
+						<Logo lang={lang} className="h-10 w-auto" />
+					</Link>
+					<Button
+						lang={lang}
+						size="md"
+						color="secondary"
+						variant="subtle"
+						iconOnly
+						type="button"
+						onClick={() => setIsOpen((open) => !open)}
+						aria-label={
+							isOpen
+								? "Close navigation menu"
+								: "Open navigation menu"
+						}
+						aria-expanded={isOpen}
+						aria-controls="mobile-navigation"
+					>
+						{isOpen ? (
+							<XIcon className="h-5 w-5" />
+						) : (
+							<MenuIcon className="h-5 w-5" />
+						)}
+					</Button>
+				</div>
+				<AnimatePresence initial={false}>
+					{isOpen && (
+						<div className="grid max-h-[calc(100dvh-7.5rem)] min-h-0 grid-rows-[minmax(0,1fr)_auto] overflow-hidden">
 							<nav
+								id="mobile-navigation"
 								aria-label="Primary navigation"
 								dir={lang === "fa" ? "rtl" : "ltr"}
-								className="flex flex-col justify-center h-full"
+								className="min-h-0 overflow-y-auto border-t border-border-subtle px-5 scrollbar-none [&::-webkit-scrollbar]:hidden"
 							>
 								<ul className="grid grid-cols-1 divide-border-subtle divide-y">
 									{navigationItems.map((item, index) => (
@@ -162,18 +132,18 @@ export default function MobileHeaderMenu({
 											<Link
 												href={item.href}
 												onClick={() => setIsOpen(false)}
-												className="grid w-full grid-cols-[1fr_auto] items-center py-4 text-heading-md font-strong text-fg transition-opacity hover:opacity-60"
+												className="grid w-full grid-cols-[1fr_auto] items-center py-4 text-body-sm font-strong text-fg transition-opacity hover:opacity-60"
 											>
 												{item.label}
 												{lang === "fa" ? (
-													<ArrowLeft
+													<ChevronLeft
 														aria-hidden="true"
-														className="h-8 w-8"
+														className="h-5 w-5"
 													/>
 												) : (
-													<ArrowRight
+													<ChevronRight
 														aria-hidden="true"
-														className="h-8 w-8"
+														className="h-5 w-5"
 													/>
 												)}
 											</Link>
@@ -181,30 +151,25 @@ export default function MobileHeaderMenu({
 									))}
 								</ul>
 							</nav>
-
 							<motion.div
+								dir={lang == "fa" ? "ltr" : "rtl"}
 								initial={{
 									opacity: 0,
 									y: reduceMotion ? 0 : 16,
 								}}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ delay: reduceMotion ? 0 : 0.35 }}
-								className="flex items-center justify-between gap-3 pb-[max(0px,env(safe-area-inset-bottom))]"
+								className="flex items-center justify-between gap-3 p-5 border-t border-border-subtle"
 							>
 								<LanguageSwitcher lang={lang} />
-								<Button
-									lang={lang}
-									size="md"
-									href="/studio"
-									className=""
-								>
+								<Button lang={lang} size="md" href="/studio">
 									{dashboardLabel}
 								</Button>
 							</motion.div>
 						</div>
-					</motion.div>
-				)}
-			</AnimatePresence>
+					)}
+				</AnimatePresence>
+			</motion.div>
 		</div>
 	);
 }

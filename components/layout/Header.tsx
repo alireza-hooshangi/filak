@@ -57,8 +57,8 @@ export default function Header({ lang }: HeaderProps) {
 				}))}
 			/>
 
-			<div className="hidden px-12 py-6 lg:block">
-				<div className="mx-auto grid w-full max-w-240 grid-cols-[auto_1fr_auto] rounded-[20px] bg-nav p-3 backdrop-blur-xl">
+			<div className="hidden p-8 lg:block">
+				<div className="mx-auto grid w-full max-w-5xl grid-cols-[auto_1fr_auto] rounded-[20px] bg-bg-secondary p-5">
 					<Link
 						href={`/${lang}`}
 						aria-label={dictionary.navigation.home}
@@ -69,13 +69,13 @@ export default function Header({ lang }: HeaderProps) {
 					<nav aria-label="Primary navigation">
 						<ul
 							dir={lang === "fa" ? "rtl" : "ltr"}
-							className="flex items-center justify-between gap-6 px-9"
+							className="flex items-center justify-center gap-6 px-5"
 						>
 							{navigationItems.map((item) => (
 								<li key={item.key}>
 									<Link
 										href={`/${lang}${item.path}`}
-										className={`flex text-center leading-10 text-foreground transition-opacity hover:opacity-60 ${lang === "fa" ? "text-xl font-bold" : "text-base font-medium"}`}
+										className={`flex text-center leading-10 text-foreground transition-opacity truncate hover:opacity-60 ${lang === "fa" ? "text-xl font-bold" : "text-base font-medium"}`}
 									>
 										{dictionary.navigation[item.key]}
 									</Link>

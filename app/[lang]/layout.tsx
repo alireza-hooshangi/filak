@@ -36,7 +36,7 @@ export default async function LanguageLayout({
 		<html
 			lang={lang}
 			dir={direction}
-			className={`${kalameh.variable} ${outfit.variable} bg-stone-100`}
+			className={`${kalameh.variable} ${outfit.variable} bg-bg`}
 		>
 			<body
 				className={`${activeFont.className} grid min-h-screen grid-rows-[1fr_auto]`}

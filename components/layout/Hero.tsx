@@ -11,37 +11,34 @@ export default function Hero({ lang }: HeroProps) {
 	const dictionary = getDictionary(lang);
 
 	return (
-		<section className={`w-full min-h-dvh grid`}>
+		<section className={`w-full min-h-dvh grid px-12 md:px-12`}>
 			<div
-				className={`mx-auto grid max-w-208 w-full grid-rows-[1fr_auto]`}
+				className={`flex flex-col space-y-12 items-center justify-center mx-auto max-w-md md:max-w-2xl`}
 			>
 				<div className={`flex flex-col items-center justify-center`}>
 					<h1
-						className={`text-center ${lang === "fa" ? "font-bold text-6xl" : "font-semibold text-5xl"}`}
+						lang={lang}
+						className={`text-heading-md md:text-heading-lg font-strong text-center text-fg`}
 					>
 						<div>{dictionary.hero.title}</div>
 						<div>{dictionary.hero.description}</div>
 					</h1>
 				</div>
-				<div
-					className={`relative flex items-center justify-center w-full h-28`}
-				>
-					<div className={`relative flex size-12 animate-bounce`}>
-						<Button
-							lang={lang}
-							iconOnly
-							radius="full"
-							size="lg"
-							color="secondary"
-							href="#age-groups"
-							className={`z-10`}
-						>
-							<ArrowDown className={`w-5 h-5`} />
-						</Button>
-						<span
-							className={`absolute -z-10 inset-0 bg-violet-200 rounded-full animate-ping`}
-						/>
-					</div>
+				<div className={`relative flex size-12 animate-bounce`}>
+					<Button
+						lang={lang}
+						iconOnly
+						radius="full"
+						size="lg"
+						color="secondary"
+						href="#age-groups"
+						className={`z-10`}
+					>
+						<ArrowDown className={`w-5 h-5`} />
+					</Button>
+					<span
+						className={`absolute -z-10 inset-0 bg-black/15 rounded-full animate-ping`}
+					/>
 				</div>
 			</div>
 		</section>

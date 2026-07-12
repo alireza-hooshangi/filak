@@ -56,11 +56,11 @@ export default function Footer({ lang }: FooterProps) {
 	const footer = dictionary.footer;
 
 	return (
-		<footer className="px-12 pt-60">
-			<div className="mx-auto grid max-w-240 gap-60">
-				<div className="grid grid-cols-[1fr_1fr_auto] items-start gap-12">
+		<footer className="px-5 md:px-8 pt-24 md:pt-60">
+			<div className="mx-auto grid max-w-5xl gap-12 md:gap-60">
+				<div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] justify-start items-start gap-12">
 					{/* Pages */}
-					<div className="flex flex-col gap-2">
+					<div className="flex flex-col items-center md:items-start gap-2">
 						<h2
 							className={`inline-flex leading-7 ${
 								lang === "fa"
@@ -72,7 +72,7 @@ export default function Footer({ lang }: FooterProps) {
 						</h2>
 
 						<nav aria-label={footer.pagesTitle}>
-							<ul className="flex flex-col gap-2">
+							<ul className="flex flex-col items-center md:items-start gap-2">
 								{pageLinks.map((item) => (
 									<li key={item.key}>
 										<Link
@@ -92,7 +92,7 @@ export default function Footer({ lang }: FooterProps) {
 					</div>
 
 					{/* Facilities */}
-					<div className="flex flex-col gap-2">
+					<div className="flex flex-col items-center md:items-start gap-2">
 						<h2
 							className={`inline-flex leading-7 ${
 								lang === "fa"
@@ -103,7 +103,7 @@ export default function Footer({ lang }: FooterProps) {
 							{footer.facilitiesTitle}
 						</h2>
 
-						<ul className="flex flex-col gap-2">
+						<ul className="flex flex-col items-center md:items-start gap-2">
 							{facilityItems.map((item) => (
 								<li key={item}>
 									<button
@@ -122,16 +122,16 @@ export default function Footer({ lang }: FooterProps) {
 					</div>
 
 					{/* Actions */}
-					<div className="flex flex-col items-end gap-8">
+					<div className="grid w-fit grid-cols-3 justify-self-center gap-x-3 gap-y-3 md:justify-self-end md:gap-x-4">
 						<Button
 							lang={lang}
 							size="lg"
 							href={`/${lang}/studio`}
-							className="w-full"
+							className="col-span-3 w-full"
 						>
 							{dictionary.navigation.dashboard}
 						</Button>
-						<div className="flex gap-4">
+						<div className="contents">
 							<Button
 								lang={lang}
 								iconOnly
@@ -140,7 +140,7 @@ export default function Footer({ lang }: FooterProps) {
 								href="#"
 								aria-label="Instagram"
 							>
-								<Instagram className="h-4 w-4" />
+								<Instagram className="h-5 w-5" />
 							</Button>
 							<Button
 								lang={lang}
@@ -150,7 +150,7 @@ export default function Footer({ lang }: FooterProps) {
 								href="#"
 								aria-label="Telegram"
 							>
-								<Telegram className="h-4 w-4" />
+								<Telegram className="h-5 w-5" />
 							</Button>
 							<Button
 								lang={lang}
@@ -160,25 +160,25 @@ export default function Footer({ lang }: FooterProps) {
 								href="#"
 								aria-label="WhatsApp"
 							>
-								<WhatsApp className="h-4 w-4" />
+								<WhatsApp className="h-5 w-5" />
 							</Button>
 						</div>
 					</div>
 				</div>
 
 				{/* Bottom */}
-				<div className="grid grid-cols-[1fr_auto] border-t border-black/5 py-12 gap-12">
+				<div className="grid justify-center md:grid-cols-[1fr_auto] border-t border-black/5 py-12 gap-8 md:gap-12">
 					<p
-						className={`flex items-center gap-3 ${lang === "fa" ? "text-xl font-normal" : "text-base font-light"}`}
+						className={`flex flex-col md:flex-row items-center md:gap-3 text-body-sm font-subtle`}
 					>
 						<span>{footer.address.name}</span>
 						<span
-							className="w-1 h-1 rounded-full bg-gray-800"
+							className="w-1 h-1 hidden md:block rounded-full bg-gray-800"
 							aria-hidden="true"
 						/>
 						<span>{footer.address.location}</span>
 						<span
-							className="w-1 h-1 rounded-full bg-gray-800"
+							className="w-1 h-1 hidden md:block rounded-full bg-gray-800"
 							aria-hidden="true"
 						/>
 						<a
@@ -189,9 +189,7 @@ export default function Footer({ lang }: FooterProps) {
 							{footer.address.phone}
 						</a>
 					</p>
-					<p
-						className={`${lang === "fa" ? "text-xl font-normal" : "text-base font-light"}`}
-					>
+					<p className={`text-center text-body-sm font-subtle`}>
 						{footer.rights}
 					</p>
 				</div>
