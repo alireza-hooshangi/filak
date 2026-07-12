@@ -10,10 +10,12 @@
 	--fg-subtle: var(--color-gray-500);
 
 	/* Border */
-	--border: rgb(0 0 0 / 5%);
+	--border: rgb(0 0 0 / 10%);
+	--border-subtle: rgb(0 0 0 / 5%);
 
 	/* Brand */
-	--brand: var(--color-violet-500);
+	--brand-primary: #ffff33;
+	--brand-secondary: var(--color-violet-500);
 
 	/* Special */
 	--nav: rgb(235 235 235 / 60%);
@@ -27,10 +29,10 @@
 	--color-fg-subtle: var(--fg-subtle);
 
 	--color-border: var(--border);
+	--color-border-subtle: var(--border-subtle);
 
-	--color-primary: var(--primary);
-	--color-secondary: var(--secondary);
-	--color-tertiary: var(--tertiary);
+	--color-brand-primary: var(--brand-primary);
+	--color-brand-secondary: var(--brand-secondary);
 
 	--color-nav: var(--nav);
 }
@@ -39,6 +41,11 @@
 @utility text-heading-sm {
 	font-size: 24px;
 	line-height: 32px;
+}
+
+@utility text-heading-md {
+	font-size: 32px;
+	line-height: 1;
 }
 
 @utility text-heading-lg {
@@ -69,6 +76,11 @@
 :lang(fa) {
 	.text-heading-sm {
 		font-size: 32px;
+		line-height: 1;
+	}
+
+	.text-heading-md {
+		font-size: 40px;
 		line-height: 1;
 	}
 

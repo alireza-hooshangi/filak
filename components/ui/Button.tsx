@@ -102,7 +102,7 @@ const variantStyles: Record<ButtonVariant, Record<ButtonColor, string>> = {
 		primary:
 			"bg-violet-500/10 text-violet-500 hover:bg-violet-500/20 focus-visible:ring-violet-500",
 		secondary:
-			"bg-gray-800/10 text-gray-800 hover:bg-gray-800/20 focus-visible:ring-gray-800",
+			"bg-black/5 text-gray-800 hover:bg-gray-800 hover:text-white focus-visible:ring-gray-800 transition-all",
 		tertiary:
 			"bg-white/50 text-gray-800 hover:bg-white/70 focus-visible:ring-gray-300",
 	},

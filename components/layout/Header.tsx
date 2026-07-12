@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import Logo from "@/components/branding/Logo";
+import MobileHeaderMenu from "@/components/layout/MobileHeaderMenu";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import Button from "../ui/Button";
 
@@ -12,7 +13,7 @@ type HeaderProps = {
 const navigationItems = [
 	{
 		key: "home",
-		path: "",
+		path: "/",
 	},
 	{
 		key: "ageGroups",
@@ -20,23 +21,23 @@ const navigationItems = [
 	},
 	{
 		key: "facilities",
-		path: "/facilities",
+		path: "#facilities",
 	},
 	{
 		key: "about",
-		path: "/about",
+		path: "#about",
 	},
 	{
 		key: "gallery",
-		path: "/gallery",
+		path: "#gallery",
 	},
 	{
 		key: "enroll",
-		path: "/enroll",
+		path: "#enroll",
 	},
 	{
 		key: "contact",
-		path: "/contact",
+		path: "#contact",
 	},
 ] as const;
 
@@ -44,45 +45,55 @@ export default function Header({ lang }: HeaderProps) {
 	const dictionary = getDictionary(lang);
 
 	return (
-		<header
-			dir="ltr"
-			className="fixed grid inset-x-0 top-0 z-50 py-6 px-12"
-		>
-			<div className="mx-auto w-full grid max-w-240 bg-nav p-3 rounded-[20px] grid-cols-[auto_1fr_auto] backdrop-blur-xl">
-				<Link
-					href={`/${lang}`}
-					aria-label={dictionary.navigation.home}
-					className="transition-opacity hover:opacity-80 flex items-center justify-center"
-				>
-					<Logo lang={lang} className="h-10 w-auto" />
-				</Link>
-				<nav aria-label="Primary navigation">
-					<ul
-						dir={lang === "fa" ? "rtl" : "ltr"}
-						className="flex items-center gap-6 justify-between px-9"
+		<header dir="ltr" className="fixed inset-x-0 top-0 z-50">
+			<MobileHeaderMenu
+				lang={lang}
+				homeLabel={dictionary.navigation.home}
+				dashboardLabel={dictionary.navigation.dashboard}
+				navigationItems={navigationItems.map((item) => ({
+					key: item.key,
+					href: `/${lang}${item.path}`,
+					label: dictionary.navigation[item.key],
+				}))}
+			/>
+
+			<div className="hidden px-12 py-6 lg:block">
+				<div className="mx-auto grid w-full max-w-240 grid-cols-[auto_1fr_auto] rounded-[20px] bg-nav p-3 backdrop-blur-xl">
+					<Link
+						href={`/${lang}`}
+						aria-label={dictionary.navigation.home}
+						className="flex items-center justify-center transition-opacity hover:opacity-80"
 					>
-						{navigationItems.map((item) => (
-							<li key={item.key}>
-								<Link
-									href={`/${lang}${item.path}`}
-									className={`transition-opacity flex leading-10 text-center hover:opacity-60 text-foreground ${lang === "fa" ? "font-bold text-xl" : "font-medium text-base"}`}
-								>
-									{dictionary.navigation[item.key]}
-								</Link>
-							</li>
-						))}
-					</ul>
-				</nav>
-				<div className="flex items-center gap-3">
-					<LanguageSwitcher lang={lang} />
-					<Button
-						lang={lang}
-						size="md"
-						href="/studio"
-						className="w-30"
-					>
-						{dictionary.navigation.dashboard}
-					</Button>
+						<Logo lang={lang} className="h-10 w-auto" />
+					</Link>
+					<nav aria-label="Primary navigation">
+						<ul
+							dir={lang === "fa" ? "rtl" : "ltr"}
+							className="flex items-center justify-between gap-6 px-9"
+						>
+							{navigationItems.map((item) => (
+								<li key={item.key}>
+									<Link
+										href={`/${lang}${item.path}`}
+										className={`flex text-center leading-10 text-foreground transition-opacity hover:opacity-60 ${lang === "fa" ? "text-xl font-bold" : "text-base font-medium"}`}
+									>
+										{dictionary.navigation[item.key]}
+									</Link>
+								</li>
+							))}
+						</ul>
+					</nav>
+					<div className="flex items-center gap-3">
+						<LanguageSwitcher lang={lang} />
+						<Button
+							lang={lang}
+							size="md"
+							href="/studio"
+							className="w-30"
+						>
+							{dictionary.navigation.dashboard}
+						</Button>
+					</div>
 				</div>
 			</div>
 		</header>
