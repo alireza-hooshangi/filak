@@ -16,7 +16,7 @@
 	--brand: var(--color-violet-500);
 
 	/* Special */
-	--nav: rgb(235 235 235 / 75%);
+	--nav: rgb(235 235 235 / 60%);
 }
 
 @theme inline {
@@ -33,6 +33,67 @@
 	--color-tertiary: var(--tertiary);
 
 	--color-nav: var(--nav);
+}
+
+/* Heading */
+@utility text-heading-sm {
+	font-size: 24px;
+	line-height: 32px;
+}
+
+@utility text-heading-lg {
+	font-size: 48px;
+	line-height: 56px;
+}
+
+/* Body */
+@utility text-body-sm {
+	font-size: 16px;
+	line-height: 28px;
+}
+
+@utility text-body-md {
+	font-size: 20px;
+	line-height: 32px;
+}
+
+/* Weight */
+@utility font-subtle {
+	font-weight: 300;
+}
+
+@utility font-strong {
+	font-weight: 600;
+}
+
+:lang(fa) {
+	.text-heading-sm {
+		font-size: 32px;
+		line-height: 1;
+	}
+
+	.text-heading-lg {
+		font-size: 56px;
+		line-height: 1;
+	}
+
+	.text-body-sm {
+		font-size: 20px;
+		line-height: 28px;
+	}
+
+	.text-body-md {
+		font-size: 24px;
+		line-height: 32px;
+	}
+
+	.font-subtle {
+		font-weight: 400;
+	}
+
+	.font-strong {
+		font-weight: 700;
+	}
 }
 
 @theme {

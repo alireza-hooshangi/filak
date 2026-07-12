@@ -33,7 +33,7 @@ export default function Hero({ lang }: HeroProps) {
 							radius="full"
 							size="lg"
 							color="secondary"
-							href="#"
+							href="#age-groups"
 							className={`z-10`}
 						>
 							<ArrowDown className={`w-5 h-5`} />

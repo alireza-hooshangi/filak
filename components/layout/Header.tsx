@@ -16,7 +16,7 @@ const navigationItems = [
 	},
 	{
 		key: "ageGroups",
-		path: "/age-groups",
+		path: "#age-groups",
 	},
 	{
 		key: "facilities",
@@ -57,7 +57,10 @@ export default function Header({ lang }: HeaderProps) {
 					<Logo lang={lang} className="h-10 w-auto" />
 				</Link>
 				<nav aria-label="Primary navigation">
-					<ul className="flex items-center gap-6 justify-between px-9">
+					<ul
+						dir={lang === "fa" ? "rtl" : "ltr"}
+						className="flex items-center gap-6 justify-between px-9"
+					>
 						{navigationItems.map((item) => (
 							<li key={item.key}>
 								<Link

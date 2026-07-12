@@ -13,6 +13,47 @@
 		"title": "Filak Kindergarten",
 		"description": "The Beginning of Children's Growth and Flourishing"
 	},
+	"ageGroups": {
+		"title": "Age Groups",
+		"intro": [
+			"The early years of life are full of discovery, play, and experience. Children’s learning during this period is deeply connected to their emotions and inner world. At Filak, with the support of caring teachers and in a safe and joyful environment, we stand beside your little ones to make every day full of growth, happiness, and learning.",
+			"We know every child is unique. That’s why children are placed in groups based on their age and needs, so they can flourish in the right environment and share new experiences with their peers."
+		],
+		"previous": "Previous age group",
+		"next": "Next age group",
+		"groups": [
+			{
+				"id": "infants",
+				"label": "Infants",
+				"age": "6 months to 24 months",
+				"description": "The very first steps into the world of learning and communication. In a safe and calm environment, infants are cared for with sensitivity and attention to their needs. During this period, our main focus is on creating a sense of security, responding to physical needs, and gradually initiating the first steps of communication."
+			},
+			{
+				"id": "toddlers",
+				"label": "Toddlers",
+				"age": "2 to 3 years",
+				"description": "As children become more active and curious, they begin exploring their surroundings more independently. In this group, they have opportunities to take part in purposeful games and movement-based activities, discover the world around them, and practise their earliest social skills."
+			},
+			{
+				"id": "littleExplorers",
+				"label": "Little Explorers",
+				"age": "3 to 4 years",
+				"description": "A period for nurturing creativity and strengthening self-confidence. Children at this age discover their abilities through artistic activities, storytelling, and group games, while gradually learning how to express themselves and build confidence."
+			},
+			{
+				"id": "preschoolOne",
+				"label": "Preschool I",
+				"age": "4 to 5 years",
+				"description": "A stage for preparing children for deeper learning, concentration, group participation, language development, and creative thinking. Children can experience more structured games, learn to enter new environments confidently, and communicate more effectively with others."
+			},
+			{
+				"id": "preschoolTwo",
+				"label": "Preschool II",
+				"age": "5 to 6 years",
+				"description": "The final step before entering primary school, focusing on cognitive, social, and emotional skills. Through educational activities, group games, and small projects, children become prepared to enter school with confidence and essential abilities."
+			}
+		]
+	},
 	"footer": {
 		"pagesTitle": "Explore",
 		"facilitiesTitle": "Facilities",
