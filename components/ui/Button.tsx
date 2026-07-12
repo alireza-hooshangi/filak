@@ -8,6 +8,7 @@ import type {
 type ButtonVariant = "solid" | "outline" | "subtle";
 type ButtonColor = "primary" | "secondary" | "tertiary";
 type ButtonSize = "sm" | "md" | "lg";
+type ButtonRadius = "default" | "full";
 type ButtonLanguage = "fa" | "en";
 
 type SharedProps = {
@@ -16,6 +17,7 @@ type SharedProps = {
 	variant?: ButtonVariant;
 	color?: ButtonColor;
 	size?: ButtonSize;
+	radius?: ButtonRadius;
 	iconOnly?: boolean;
 	className?: string;
 };
@@ -43,14 +45,27 @@ const fontWeightStyles: Record<ButtonLanguage, string> = {
 
 const sizeStyles: Record<ButtonLanguage, Record<ButtonSize, string>> = {
 	fa: {
-		sm: "h-8 rounded-lg text-base",
-		md: "h-10 rounded-[10px] text-xl",
-		lg: "h-12 rounded-xl text-xl",
+		sm: "h-8 text-base",
+		md: "h-10 text-xl",
+		lg: "h-12 text-xl",
 	},
 	en: {
-		sm: "h-8 rounded-lg text-sm",
-		md: "h-10 rounded-[10px] text-base",
-		lg: "h-12 rounded-xl text-base",
+		sm: "h-8 text-sm",
+		md: "h-10 text-base",
+		lg: "h-12 text-base",
+	},
+};
+
+const radiusStyles: Record<ButtonRadius, Record<ButtonSize, string>> = {
+	default: {
+		sm: "rounded-lg",
+		md: "rounded-[10px]",
+		lg: "rounded-xl",
+	},
+	full: {
+		sm: "rounded-full",
+		md: "rounded-full",
+		lg: "rounded-full",
 	},
 };
 
@@ -100,6 +115,7 @@ export default function Button(props: ButtonProps) {
 		variant = "solid",
 		color = "primary",
 		size = "md",
+		radius = "default",
 		iconOnly = false,
 		className = "",
 	} = props;
@@ -108,6 +124,7 @@ export default function Button(props: ButtonProps) {
 		baseStyles,
 		fontWeightStyles[lang],
 		sizeStyles[lang][size],
+		radiusStyles[radius][size],
 		iconOnly ? iconOnlyStyles[size] : paddingStyles[size],
 		variantStyles[variant][color],
 		className,
@@ -124,6 +141,7 @@ export default function Button(props: ButtonProps) {
 			variant: _variant,
 			color: _color,
 			size: _size,
+			radius: _radius,
 			iconOnly: _iconOnly,
 			className: _className,
 			...linkProps
@@ -150,6 +168,7 @@ export default function Button(props: ButtonProps) {
 		variant: _variant,
 		color: _color,
 		size: _size,
+		radius: _radius,
 		iconOnly: _iconOnly,
 		className: _className,
 		href: _href,

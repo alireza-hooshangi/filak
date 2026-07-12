@@ -30,10 +30,11 @@ export default function Hero({ lang }: HeroProps) {
 						<Button
 							lang={lang}
 							iconOnly
+							radius="full"
 							size="lg"
 							color="secondary"
 							href="#"
-							className={`rounded-full! z-10`}
+							className={`z-10`}
 						>
 							<ArrowDown className={`w-5 h-5`} />
 						</Button>
