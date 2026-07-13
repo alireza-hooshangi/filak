@@ -4,6 +4,7 @@ import { isLocale } from "@/lib/i18n";
 import Hero from "@/components/layout/Hero";
 import AgeGroups from "@/components/layout/AgeGroups";
 import Facilities from "@/components/layout/Facilities";
+import About from "@/components/layout/About";
 
 type HomePageProps = {
 	params: Promise<{
@@ -23,6 +24,7 @@ export default async function HomePage({ params }: HomePageProps) {
 			<Hero lang={lang} />
 			<AgeGroups lang={lang} />
 			<Facilities lang={lang} />
+			<About lang={lang} />
 		</>
 	);
 }

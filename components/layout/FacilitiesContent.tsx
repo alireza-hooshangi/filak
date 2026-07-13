@@ -83,7 +83,7 @@ export default function FacilitiesContent({
 	}, [activeFacility]);
 
 	return (
-		<section id="facilities" className="py-24 lg:py-60 px-5 md:px-8">
+		<section id="facilities" className="pt-24 lg:pt-60 px-5 md:px-8">
 			<div className={`mx-auto w-full max-w-5xl`}>
 				<div className="flex items-center justify-between pb-5 md:pb-8 lg:pb-16">
 					<h2 className="text-heading-lg font-strong text-fg px-1">

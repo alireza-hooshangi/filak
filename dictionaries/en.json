@@ -73,6 +73,37 @@
 			{ "id": "mediaRoom", "label": "Media Room", "description": "The media room supports carefully selected visual and interactive learning experiences designed for young children." }
 		]
 	},
+	"about": {
+		"sections": [
+			{
+				"id": "aboutFilak",
+				"title": "About Filak",
+				"paragraphs": [
+					"Filak Kindergarten was founded in 2016 with the goal of providing holistic and engaging education, nurturing children who are energetic and lively, and preparing them for a better individual and social life.",
+					"Filak’s main concern has always been building a strong foundation for children to acquire personal and social skills so they can succeed in all stages of their lives. This mission is pursued through the cooperation of experienced and skilled staff, along with precise planning.",
+					"We are proud to note that as a result of these efforts, on 16 November 2020, Filak Kindergarten was recognized as the only four-star kindergarten in Isfahan and one of the few four-star centers in Iran. We are committed to maintaining this position and vision."
+				]
+			},
+			{
+				"id": "whyFilak",
+				"title": "Why Filak",
+				"paragraphs": [
+					"Every moment of a child’s presence at Filak is shaped through purposeful and structured planning. This approach ensures that activities are not merely for entertainment, but rather guide children toward intellectual and skillful growth.",
+					"The kindergarten environment is designed with a variety of educational stations so children are constantly moving, exploring, and experimenting. This dynamism is an inseparable part of their daily identity and provides the foundation for discovering personal and social abilities.",
+					"We believe that true learning arises from experience and active participation. This perspective is reflected throughout our activities and is rooted in modern educational philosophies that prioritize the holistic development of the child."
+				]
+			},
+			{
+				"id": "filakTeam",
+				"title": "Filak’s Team",
+				"paragraphs": [
+					"Every section of Filak Kindergarten is run by a team of specialized and trained professionals to ensure that activities proceed with greater order and quality. This structure allows each educational, care, and support unit to perform at its best.",
+					"From teachers to the educational, caregiving, and support staff, everyone works together in harmony and team spirit. The presence of diverse and knowledgeable staff in each department, along with up-to-date expertise and work experience, guarantees children’s safety and parents’ peace of mind.",
+					"Professionalism and responsibility are values we always emphasize. These principles help us create a safe and reliable environment that fosters trust and provides the foundation for the all-round growth of children."
+				]
+			}
+		]
+	},
 	"footer": {
 		"pagesTitle": "Explore",
 		"facilitiesTitle": "Facilities",
