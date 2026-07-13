@@ -45,7 +45,10 @@ export default function Header({ lang }: HeaderProps) {
 	const dictionary = getDictionary(lang);
 
 	return (
-		<header dir="ltr" className="fixed inset-x-0 top-0 z-50">
+		<header
+			dir="ltr"
+			className="fixed inset-x-0 top-0 z-50 pointer-events-none"
+		>
 			<MobileHeaderMenu
 				lang={lang}
 				homeLabel={dictionary.navigation.home}
@@ -57,8 +60,8 @@ export default function Header({ lang }: HeaderProps) {
 				}))}
 			/>
 
-			<div className="hidden p-8 lg:block">
-				<div className="mx-auto grid w-full max-w-5xl grid-cols-[auto_1fr_auto] rounded-[20px] bg-bg-secondary p-5">
+			<div className="hidden p-8 lg:block pointer-events-none">
+				<div className="mx-auto grid w-full max-w-5xl grid-cols-[auto_1fr_auto] rounded-[20px] bg-bg-secondary p-5 pointer-events-auto">
 					<Link
 						href={`/${lang}`}
 						aria-label={dictionary.navigation.home}

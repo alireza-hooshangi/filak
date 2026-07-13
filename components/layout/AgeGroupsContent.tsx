@@ -80,7 +80,7 @@ export default function AgeGroupsContent({
 	};
 
 	return (
-		<section id="age-groups" className="px-5 pt-24 md:px-8 lg:pt-60">
+		<section id="age-groups" className="px-6 pt-24 md:px-8 lg:pt-60">
 			<div className="mx-auto max-w-5xl">
 				{/* Desktop */}
 				<div className="hidden md:flex flex-col rounded-4xl lg:rounded-[48px] bg-bg-tertiary px-8 lg:px-12">

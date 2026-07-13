@@ -56,7 +56,7 @@ export default function Footer({ lang }: FooterProps) {
 	const footer = dictionary.footer;
 
 	return (
-		<footer className="px-5 md:px-8 pt-24 md:pt-60">
+		<footer className="px-6 md:px-8 pt-24 md:pt-60">
 			<div className="mx-auto grid max-w-5xl gap-12 md:gap-60">
 				<div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] justify-start items-start gap-12">
 					{/* Pages */}

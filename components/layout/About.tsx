@@ -16,7 +16,7 @@ export default function About({ lang }: AboutProps) {
 	const { about } = getDictionary(lang);
 
 	return (
-		<section id="about" className="px-5 md:px-8 pt-24 md:pt-48 lg:pt-60">
+		<section id="about" className="px-6 md:px-8 pt-24 md:pt-48 lg:pt-60">
 			<div className="mx-auto flex w-full max-w-5xl flex-col gap-24 lg:gap-48">
 				{about.sections.map((section, index) => {
 					const imageOnLeft = index % 2 === 1;

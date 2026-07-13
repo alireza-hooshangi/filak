@@ -83,7 +83,7 @@ export default function FacilitiesContent({
 	}, [activeFacility]);
 
 	return (
-		<section id="facilities" className="pt-24 lg:pt-60 px-5 md:px-8">
+		<section id="facilities" className="pt-24 lg:pt-60 px-6 md:px-8">
 			<div className={`mx-auto w-full max-w-5xl`}>
 				<div className="flex items-center justify-between pb-5 md:pb-8 lg:pb-16">
 					<h2 className="text-heading-lg font-strong text-fg px-1">
@@ -131,15 +131,15 @@ export default function FacilitiesContent({
 					aria-roledescription="carousel"
 					aria-label={content.title}
 				>
-					<div className="flex touch-pan-y touch-pinch-zoom -ml-2.5 md:-ml-4 lg:-ml-8">
+					<div className="flex touch-pan-y touch-pinch-zoom -ml-3 md:-ml-4 lg:-ml-8">
 						{content.items.map((facility, index) => (
 							<article
 								key={facility.id}
-								className="min-w-0 flex-[0_0_100%] md:flex-[0_0_50%] pl-2.5 md:pl-4 lg:pl-8 flex flex-col space-y-5 md:space-y-8"
+								className="min-w-0 flex-[0_0_75%] md:flex-[0_0_40%] lg:flex-[0_0_calc(100%/3)] pl-3 md:pl-4 lg:pl-8 flex flex-col space-y-5 md:space-y-8"
 								aria-roledescription="slide"
 								aria-label={`${index + 1} / ${content.items.length}`}
 							>
-								<div className="relative aspect-4/3 overflow-hidden rounded-2xl md:rounded-4xl">
+								<div className="relative aspect-4/5 overflow-hidden rounded-3xl md:rounded-4xl">
 									<Image
 										src={facilityImage}
 										alt=""
@@ -149,7 +149,7 @@ export default function FacilitiesContent({
 									/>
 								</div>
 
-								<div className="flex items-center gap-4">
+								<div className="flex items-start gap-4">
 									<Button
 										lang={lang}
 										iconOnly
@@ -208,23 +208,23 @@ export default function FacilitiesContent({
 							aria-modal="true"
 							aria-labelledby="facility-dialog-title"
 							aria-describedby="facility-dialog-description"
-							className="pointer-events-auto grid max-h-[calc(100dvh-40px)] w-full max-w-5xl grid-cols-1 gap-5 overflow-y-auto overscroll-contain rounded-4xl bg-zinc-800 p-5 text-fg scrollbar-none [&::-webkit-scrollbar]:hidden md:max-h-[calc(100dvh-64px)] md:grid-cols-5 md:p-8"
+							className="pointer-events-auto flex justify-between max-h-[calc(100dvh-40px)] w-full max-w-5xl gap-6 overflow-y-auto overscroll-contain rounded-4xl bg-zinc-800 p-6 text-fg scrollbar-none [&::-webkit-scrollbar]:hidden md:max-h-[calc(100dvh-64px)] md:p-8"
 						>
-							<header className="flex flex-col md:justify-between md:col-span-3 gap-3 md:gap-12">
+							<header className="flex flex-col justify-between max-w-md w-full gap-8 md:gap-12">
 								<h3
 									id="facility-dialog-title"
-									className="md:max-w-sm text-heading-md font-strong text-bg"
+									className="text-heading-sm md:text-heading-md font-strong text-bg"
 								>
 									{activeFacility.label}
 								</h3>
 								<p
 									id="facility-dialog-description"
-									className="md:max-w-sm text-body-sm md:text-body-md font-subtle text-bg/80"
+									className="text-body-sm md:text-body-md font-subtle text-bg/80"
 								>
 									{activeFacility.description}
 								</p>
 							</header>
-							<div className="relative aspect-4/3 w-full md:col-span-2 min-h-full overflow-hidden rounded-2xl">
+							<div className="relative aspect-4/5 max-w-24 min-h-full w-full md:max-w-48 overflow-hidden rounded-2xl">
 								<Image
 									src={facilityImage}
 									alt=""

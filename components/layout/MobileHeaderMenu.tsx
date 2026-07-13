@@ -3,12 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import {
-	ChevronLeft,
-	ChevronRight,
-	MenuIcon,
-	XIcon,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, MenuIcon, XIcon } from "lucide-react";
 
 import Logo from "@/components/branding/Logo";
 import Button from "@/components/ui/Button";
@@ -50,7 +45,7 @@ export default function MobileHeaderMenu({
 	}, [isOpen]);
 
 	return (
-		<div className="relative p-5 md:p-8 lg:hidden">
+		<div className="relative p-6 md:p-8 lg:hidden">
 			<AnimatePresence>
 				{isOpen && (
 					<motion.div
@@ -60,7 +55,7 @@ export default function MobileHeaderMenu({
 						exit={{ opacity: 0 }}
 						transition={{ duration: reduceMotion ? 0 : 0.25 }}
 						onClick={() => setIsOpen(false)}
-						className="fixed inset-0 z-0 bg-black/30"
+						className="fixed inset-0 z-0 bg-black/30 pointer-events-auto"
 					/>
 				)}
 			</AnimatePresence>
@@ -72,7 +67,7 @@ export default function MobileHeaderMenu({
 						? { duration: 0 }
 						: { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
 				}
-				className="relative z-10 grid w-full items-start overflow-hidden rounded-[20px] bg-bg-secondary backdrop-blur-xl"
+				className="relative z-10 grid w-full items-start overflow-hidden rounded-[20px] bg-bg-secondary backdrop-blur-xl pointer-events-auto"
 			>
 				<div className="flex w-full justify-between items-center p-5">
 					<Link

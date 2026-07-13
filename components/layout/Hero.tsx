@@ -11,7 +11,7 @@ export default function Hero({ lang }: HeroProps) {
 	const dictionary = getDictionary(lang);
 
 	return (
-		<section className={`w-full min-h-dvh grid px-12 md:px-12`}>
+		<section className={`w-full min-h-dvh grid px-12`}>
 			<div
 				className={`flex flex-col space-y-12 items-center justify-center mx-auto max-w-md md:max-w-2xl`}
 			>
