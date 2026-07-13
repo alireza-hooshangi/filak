@@ -17,7 +17,7 @@ export default function Enroll({ lang }: EnrollProps) {
 			className="flex h-screen items-center justify-center px-6"
 		>
 			<div className="flex max-w-4xl flex-col items-center gap-12 text-center md:gap-16">
-				<h2 className="text-heading-md font-strong text-fg md:text-heading-lg">
+				<h2 className="font-strong text-fg text-heading-lg">
 					{dictionary.enroll.title}
 				</h2>
 

@@ -17,6 +17,16 @@
 		"title": "Visiting Filak is your first step",
 		"action": "Schedule a Tour"
 	},
+	"contact": {
+		"title": "Contact",
+		"description": "We’re always happy to hear from you. For questions, suggestions, or arrangements, just reach out to us.",
+		"telegram": "Telegram",
+		"whatsapp": "WhatsApp",
+		"instagram": "Instagram",
+		"phone": "031-36412417",
+		"hours": "8:00 AM – 5:00 PM",
+		"days": "Saturday – Friday"
+	},
 	"ageGroups": {
 		"title": "Age Groups",
 		"intro": [
@@ -119,9 +129,9 @@
 	},
 	"gallery": {
 		"title": "Gallery",
-		"previous": "Previous gallery image",
-		"next": "Next gallery image",
-		"followInstagram": "Follow us",
+		"open": "Open gallery",
+		"enlarge": "Enlarge image",
+		"close": "Close image",
 		"items": [
 			{
 				"id": "painting",

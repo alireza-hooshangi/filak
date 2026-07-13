@@ -32,7 +32,7 @@ export default function About({ lang }: AboutProps) {
 								<h2 className="text-heading-lg font-strong text-fg">
 									{section.title}
 								</h2>
-								<div className="flex flex-col space-y-4 md:space-y-7 text-body-sm md:text-body-md font-subtle text-fg">
+								<div className="flex flex-col space-y-4 md:space-y-7 text-body-sm font-subtle text-fg">
 									{section.paragraphs.map((paragraph) => (
 										<p key={paragraph}>{paragraph}</p>
 									))}

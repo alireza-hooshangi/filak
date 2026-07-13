@@ -36,7 +36,7 @@ export default function FacilitiesContent({
 		align: "start",
 		direction: isRtl ? "rtl" : "ltr",
 		loop: false,
-		skipSnaps: false,
+		skipSnaps: true,
 	});
 	const [activeFacility, setActiveFacility] = useState<Facility | null>(null);
 	const triggerRef = useRef<HTMLButtonElement | null>(null);

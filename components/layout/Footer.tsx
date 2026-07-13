@@ -62,11 +62,7 @@ export default function Footer({ lang }: FooterProps) {
 					{/* Pages */}
 					<div className="flex flex-col items-center md:items-start gap-2">
 						<h2
-							className={`inline-flex leading-7 ${
-								lang === "fa"
-									? "text-xl font-bold"
-									: "text-base font-semibold"
-							}`}
+							className={`inline-flex leading-7 text-body-sm font-strong`}
 						>
 							{footer.pagesTitle}
 						</h2>
@@ -77,11 +73,7 @@ export default function Footer({ lang }: FooterProps) {
 									<li key={item.key}>
 										<Link
 											href={`/${lang}#${item.sectionId}`}
-											className={`inline-flex leading-7 text-gray-800 transition-opacity hover:opacity-60 ${
-												lang === "fa"
-													? "text-xl font-normal"
-													: "text-base font-light"
-											}`}
+											className={`inline-flex leading-7 text-gray-800 transition-opacity hover:opacity-60 text-body-sm font-subtle`}
 										>
 											{dictionary.navigation[item.key]}
 										</Link>
@@ -94,11 +86,7 @@ export default function Footer({ lang }: FooterProps) {
 					{/* Facilities */}
 					<div className="flex flex-col items-center md:items-start gap-2">
 						<h2
-							className={`inline-flex leading-7 ${
-								lang === "fa"
-									? "text-xl font-bold"
-									: "text-base font-semibold"
-							}`}
+							className={`inline-flex leading-7 text-body-sm font-strong`}
 						>
 							{footer.facilitiesTitle}
 						</h2>
@@ -108,11 +96,7 @@ export default function Footer({ lang }: FooterProps) {
 								<li key={item}>
 									<button
 										type="button"
-										className={`inline-flex cursor-pointer appearance-none border-0 bg-transparent p-0 leading-7 text-gray-800 transition-opacity hover:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-800 focus-visible:ring-offset-2 ${
-											lang === "fa"
-												? "text-right text-xl font-normal"
-												: "text-left text-base font-light"
-										}`}
+										className={`inline-flex cursor-pointer appearance-none border-0 bg-transparent p-0 leading-7 text-gray-800 transition-opacity hover:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-800 focus-visible:ring-offset-2 text-body-sm font-subtle`}
 									>
 										{footer.facilities[item]}
 									</button>

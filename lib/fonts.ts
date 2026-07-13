@@ -10,15 +10,21 @@ export const outfit = localFont({
 export const kalameh = localFont({
 	src: [
 		{
-			path: "../app/assets/fonts/kalameh/Kalameh-Regular.ttf",
+			path: "../app/assets/fonts/kalameh/woff2/KalamehWeb-Regular.woff2",
 			weight: "400",
+			style: "normal",
 		},
 		{
-			path: "../app/assets/fonts/kalameh/Kalameh-Bold.ttf",
+			path: "../app/assets/fonts/kalameh/woff2/KalamehWeb-SemiBold.woff2",
+			weight: "600",
+			style: "normal",
+		},
+		{
+			path: "../app/assets/fonts/kalameh/woff2/KalamehWeb-Bold.woff2",
 			weight: "700",
+			style: "normal",
 		},
 	],
-
 	variable: "--font-kalameh",
 	display: "swap",
 });

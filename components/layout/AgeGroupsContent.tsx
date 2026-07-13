@@ -101,11 +101,11 @@ export default function AgeGroupsContent({
 								/>
 							</div>
 						</div>
-						<div className="max-w-6xl space-y-7 text-body-sm lg:text-body-md font-subtle text-fg">
+						{/* <div className="max-w-6xl space-y-7 text-body-sm lg:text-body-md font-subtle text-fg">
 							{leadIntro.map((paragraph) => (
 								<p key={paragraph}>{paragraph}</p>
 							))}
-						</div>
+						</div> */}
 					</header>
 
 					<div className="flex flex-col py-8 lg:py-12 space-y-16 lg:space-y-24 border-t border-border">
@@ -131,7 +131,7 @@ export default function AgeGroupsContent({
 												active
 													? "border-transparent text-bg-secondary"
 													: "border-border text-fg hover:bg-bg"
-											}`}
+											} ${lang == "fa" ? "pb-0.5" : "pb-0"}`}
 										>
 											{active && (
 												<motion.span

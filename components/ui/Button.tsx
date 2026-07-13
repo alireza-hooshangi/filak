@@ -14,6 +14,7 @@ type ResponsiveButtonSize = {
 } & Partial<Record<ButtonBreakpoint, ButtonSize>>;
 type ButtonRadius = "default" | "full";
 type ButtonLanguage = "fa" | "en";
+type ButtonJustify = "center" | "between";
 
 type SharedProps = {
 	children: ReactNode;
@@ -22,6 +23,7 @@ type SharedProps = {
 	color?: ButtonColor;
 	size?: ButtonSize | ResponsiveButtonSize;
 	radius?: ButtonRadius;
+	justify?: ButtonJustify;
 	iconOnly?: boolean;
 	className?: string;
 };
@@ -40,23 +42,41 @@ type LinkButtonProps = SharedProps &
 type ButtonProps = NativeButtonProps | LinkButtonProps;
 
 const baseStyles =
-	"inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40";
+	"flex shrink-0 items-center whitespace-nowrap transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40";
+
+const justifyStyles: Record<ButtonJustify, string> = {
+	center: "justify-center",
+	between: "justify-between",
+};
 
 const fontWeightStyles: Record<ButtonLanguage, string> = {
-	fa: "font-bold",
+	fa: "font-strong",
 	en: "font-medium",
 };
 
 const sizeStyles: Record<ButtonLanguage, Record<ButtonSize, string>> = {
 	fa: {
-		sm: "h-8 text-base",
-		md: "h-10 text-xl",
-		lg: "h-12 text-xl",
+		sm: "h-8 text-body-sm",
+		md: "h-10 text-body-sm",
+		lg: "h-12 text-body-sm",
 	},
 	en: {
-		sm: "h-8 text-sm",
-		md: "h-10 text-base",
-		lg: "h-12 text-base",
+		sm: "h-8 text-body-sm",
+		md: "h-10 text-body-sm",
+		lg: "h-12 text-body-sm",
+	},
+};
+
+const textOffsetStyles: Record<ButtonLanguage, Record<ButtonSize, string>> = {
+	fa: {
+		sm: "pb-px",
+		md: "pb-px",
+		lg: "pb-px",
+	},
+	en: {
+		sm: "",
+		md: "",
+		lg: "",
 	},
 };
 
@@ -90,24 +110,64 @@ const breakpointSizeStyles: Record<
 	Record<ButtonLanguage, Record<ButtonSize, string>>
 > = {
 	sm: {
-		fa: { sm: "sm:h-8 sm:text-base", md: "sm:h-10 sm:text-xl", lg: "sm:h-12 sm:text-xl" },
-		en: { sm: "sm:h-8 sm:text-sm", md: "sm:h-10 sm:text-base", lg: "sm:h-12 sm:text-base" },
+		fa: {
+			sm: "sm:h-8 sm:text-body-sm",
+			md: "sm:h-10 sm:text-body-sm",
+			lg: "sm:h-12 sm:text-body-md",
+		},
+		en: {
+			sm: "sm:h-8 sm:text-body-sm",
+			md: "sm:h-10 sm:text-body-sm",
+			lg: "sm:h-12 sm:text-body-md",
+		},
 	},
 	md: {
-		fa: { sm: "md:h-8 md:text-base", md: "md:h-10 md:text-xl", lg: "md:h-12 md:text-xl" },
-		en: { sm: "md:h-8 md:text-sm", md: "md:h-10 md:text-base", lg: "md:h-12 md:text-base" },
+		fa: {
+			sm: "md:h-8 md:text-body-sm",
+			md: "md:h-10 md:text-body-sm",
+			lg: "md:h-12 md:text-body-md",
+		},
+		en: {
+			sm: "md:h-8 md:text-body-sm",
+			md: "md:h-10 md:text-body-sm",
+			lg: "md:h-12 md:text-body-md",
+		},
 	},
 	lg: {
-		fa: { sm: "lg:h-8 lg:text-base", md: "lg:h-10 lg:text-xl", lg: "lg:h-12 lg:text-xl" },
-		en: { sm: "lg:h-8 lg:text-sm", md: "lg:h-10 lg:text-base", lg: "lg:h-12 lg:text-base" },
+		fa: {
+			sm: "lg:h-8 lg:text-body-sm",
+			md: "lg:h-10 lg:text-body-sm",
+			lg: "lg:h-12 lg:text-body-md",
+		},
+		en: {
+			sm: "lg:h-8 lg:text-body-sm",
+			md: "lg:h-10 lg:text-body-sm",
+			lg: "lg:h-12 lg:text-body-md",
+		},
 	},
 	xl: {
-		fa: { sm: "xl:h-8 xl:text-base", md: "xl:h-10 xl:text-xl", lg: "xl:h-12 xl:text-xl" },
-		en: { sm: "xl:h-8 xl:text-sm", md: "xl:h-10 xl:text-base", lg: "xl:h-12 xl:text-base" },
+		fa: {
+			sm: "xl:h-8 xl:text-body-sm",
+			md: "xl:h-10 xl:text-body-sm",
+			lg: "xl:h-12 xl:text-body-md",
+		},
+		en: {
+			sm: "xl:h-8 xl:text-body-sm",
+			md: "xl:h-10 xl:text-body-sm",
+			lg: "xl:h-12 xl:text-body-md",
+		},
 	},
 	"2xl": {
-		fa: { sm: "2xl:h-8 2xl:text-base", md: "2xl:h-10 2xl:text-xl", lg: "2xl:h-12 2xl:text-xl" },
-		en: { sm: "2xl:h-8 2xl:text-sm", md: "2xl:h-10 2xl:text-base", lg: "2xl:h-12 2xl:text-base" },
+		fa: {
+			sm: "2xl:h-8 2xl:text-body-sm",
+			md: "2xl:h-10 2xl:text-body-sm",
+			lg: "2xl:h-12 2xl:text-body-md",
+		},
+		en: {
+			sm: "2xl:h-8 2xl:text-body-sm",
+			md: "2xl:h-10 2xl:text-body-sm",
+			lg: "2xl:h-12 2xl:text-body-md",
+		},
 	},
 };
 
@@ -116,24 +176,64 @@ const breakpointShapeStyles: Record<
 	Record<ButtonRadius, Record<ButtonSize, string>>
 > = {
 	sm: {
-		default: { sm: "sm:rounded-lg", md: "sm:rounded-[10px]", lg: "sm:rounded-xl" },
-		full: { sm: "sm:rounded-full", md: "sm:rounded-full", lg: "sm:rounded-full" },
+		default: {
+			sm: "sm:rounded-lg",
+			md: "sm:rounded-[10px]",
+			lg: "sm:rounded-xl",
+		},
+		full: {
+			sm: "sm:rounded-full",
+			md: "sm:rounded-full",
+			lg: "sm:rounded-full",
+		},
 	},
 	md: {
-		default: { sm: "md:rounded-lg", md: "md:rounded-[10px]", lg: "md:rounded-xl" },
-		full: { sm: "md:rounded-full", md: "md:rounded-full", lg: "md:rounded-full" },
+		default: {
+			sm: "md:rounded-lg",
+			md: "md:rounded-[10px]",
+			lg: "md:rounded-xl",
+		},
+		full: {
+			sm: "md:rounded-full",
+			md: "md:rounded-full",
+			lg: "md:rounded-full",
+		},
 	},
 	lg: {
-		default: { sm: "lg:rounded-lg", md: "lg:rounded-[10px]", lg: "lg:rounded-xl" },
-		full: { sm: "lg:rounded-full", md: "lg:rounded-full", lg: "lg:rounded-full" },
+		default: {
+			sm: "lg:rounded-lg",
+			md: "lg:rounded-[10px]",
+			lg: "lg:rounded-xl",
+		},
+		full: {
+			sm: "lg:rounded-full",
+			md: "lg:rounded-full",
+			lg: "lg:rounded-full",
+		},
 	},
 	xl: {
-		default: { sm: "xl:rounded-lg", md: "xl:rounded-[10px]", lg: "xl:rounded-xl" },
-		full: { sm: "xl:rounded-full", md: "xl:rounded-full", lg: "xl:rounded-full" },
+		default: {
+			sm: "xl:rounded-lg",
+			md: "xl:rounded-[10px]",
+			lg: "xl:rounded-xl",
+		},
+		full: {
+			sm: "xl:rounded-full",
+			md: "xl:rounded-full",
+			lg: "xl:rounded-full",
+		},
 	},
 	"2xl": {
-		default: { sm: "2xl:rounded-lg", md: "2xl:rounded-[10px]", lg: "2xl:rounded-xl" },
-		full: { sm: "2xl:rounded-full", md: "2xl:rounded-full", lg: "2xl:rounded-full" },
+		default: {
+			sm: "2xl:rounded-lg",
+			md: "2xl:rounded-[10px]",
+			lg: "2xl:rounded-xl",
+		},
+		full: {
+			sm: "2xl:rounded-full",
+			md: "2xl:rounded-full",
+			lg: "2xl:rounded-full",
+		},
 	},
 };
 
@@ -143,23 +243,43 @@ const breakpointSpacingStyles: Record<
 > = {
 	sm: {
 		default: { sm: "sm:px-3", md: "sm:px-4", lg: "sm:px-6" },
-		iconOnly: { sm: "sm:w-8 sm:p-0", md: "sm:w-10 sm:p-0", lg: "sm:w-12 sm:p-0" },
+		iconOnly: {
+			sm: "sm:w-8 sm:p-0",
+			md: "sm:w-10 sm:p-0",
+			lg: "sm:w-12 sm:p-0",
+		},
 	},
 	md: {
 		default: { sm: "md:px-3", md: "md:px-4", lg: "md:px-6" },
-		iconOnly: { sm: "md:w-8 md:p-0", md: "md:w-10 md:p-0", lg: "md:w-12 md:p-0" },
+		iconOnly: {
+			sm: "md:w-8 md:p-0",
+			md: "md:w-10 md:p-0",
+			lg: "md:w-12 md:p-0",
+		},
 	},
 	lg: {
 		default: { sm: "lg:px-3", md: "lg:px-4", lg: "lg:px-6" },
-		iconOnly: { sm: "lg:w-8 lg:p-0", md: "lg:w-10 lg:p-0", lg: "lg:w-12 lg:p-0" },
+		iconOnly: {
+			sm: "lg:w-8 lg:p-0",
+			md: "lg:w-10 lg:p-0",
+			lg: "lg:w-12 lg:p-0",
+		},
 	},
 	xl: {
 		default: { sm: "xl:px-3", md: "xl:px-4", lg: "xl:px-6" },
-		iconOnly: { sm: "xl:w-8 xl:p-0", md: "xl:w-10 xl:p-0", lg: "xl:w-12 xl:p-0" },
+		iconOnly: {
+			sm: "xl:w-8 xl:p-0",
+			md: "xl:w-10 xl:p-0",
+			lg: "xl:w-12 xl:p-0",
+		},
 	},
 	"2xl": {
 		default: { sm: "2xl:px-3", md: "2xl:px-4", lg: "2xl:px-6" },
-		iconOnly: { sm: "2xl:w-8 2xl:p-0", md: "2xl:w-10 2xl:p-0", lg: "2xl:w-12 2xl:p-0" },
+		iconOnly: {
+			sm: "2xl:w-8 2xl:p-0",
+			md: "2xl:w-10 2xl:p-0",
+			lg: "2xl:w-12 2xl:p-0",
+		},
 	},
 };
 
@@ -176,7 +296,7 @@ const variantStyles: Record<ButtonVariant, Record<ButtonColor, string>> = {
 		primary:
 			"border border-violet-500 text-violet-500 hover:bg-violet-500/10 focus-visible:ring-violet-500",
 		secondary:
-			"border border-gray-800 text-gray-800 hover:bg-gray-800/10 focus-visible:ring-gray-800",
+			"border border-black/10 text-gray-800 hover:bg-black/5 hover:border-black/10 focus-visible:ring-gray-800",
 		tertiary:
 			"border border-gray-300 text-gray-800 hover:bg-gray-100 focus-visible:ring-gray-300",
 	},
@@ -198,6 +318,7 @@ export default function Button(props: ButtonProps) {
 		color = "primary",
 		size = "md",
 		radius = "default",
+		justify = "center",
 		iconOnly = false,
 		className = "",
 	} = props;
@@ -206,22 +327,36 @@ export default function Button(props: ButtonProps) {
 	const responsiveSizeClasses =
 		typeof size === "string"
 			? []
-			: (Object.entries(size) as ["base" | ButtonBreakpoint, ButtonSize][])
+			: (
+					Object.entries(size) as [
+						"base" | ButtonBreakpoint,
+						ButtonSize,
+					][]
+				)
 					.filter(([breakpoint]) => breakpoint !== "base")
 					.flatMap(([breakpoint, breakpointSize]) => {
-						const responsiveBreakpoint = breakpoint as ButtonBreakpoint;
+						const responsiveBreakpoint =
+							breakpoint as ButtonBreakpoint;
 
 						return [
-							breakpointSizeStyles[responsiveBreakpoint][lang][breakpointSize],
-							breakpointShapeStyles[responsiveBreakpoint][radius][breakpointSize],
-							breakpointSpacingStyles[responsiveBreakpoint][iconOnly ? "iconOnly" : "default"][breakpointSize],
+							breakpointSizeStyles[responsiveBreakpoint][lang][
+								breakpointSize
+							],
+							breakpointShapeStyles[responsiveBreakpoint][radius][
+								breakpointSize
+							],
+							breakpointSpacingStyles[responsiveBreakpoint][
+								iconOnly ? "iconOnly" : "default"
+							][breakpointSize],
 						];
 					});
 
 	const classes = [
 		baseStyles,
+		justifyStyles[justify],
 		fontWeightStyles[lang],
 		sizeStyles[lang][baseSize],
+		iconOnly ? "" : textOffsetStyles[lang][baseSize],
 		radiusStyles[radius][baseSize],
 		iconOnly ? iconOnlyStyles[baseSize] : paddingStyles[baseSize],
 		...responsiveSizeClasses,
@@ -241,6 +376,7 @@ export default function Button(props: ButtonProps) {
 			color: _color,
 			size: _size,
 			radius: _radius,
+			justify: _justify,
 			iconOnly: _iconOnly,
 			className: _className,
 			...linkProps
@@ -268,6 +404,7 @@ export default function Button(props: ButtonProps) {
 		color: _color,
 		size: _size,
 		radius: _radius,
+		justify: _justify,
 		iconOnly: _iconOnly,
 		className: _className,
 		href: _href,

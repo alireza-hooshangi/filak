@@ -78,7 +78,7 @@ export default function Header({ lang }: HeaderProps) {
 								<li key={item.key}>
 									<Link
 										href={`/${lang}${item.path}`}
-										className={`flex text-center leading-10 text-foreground transition-opacity truncate hover:opacity-60 ${lang === "fa" ? "text-xl font-bold" : "text-base font-medium"}`}
+										className={`flex text-center leading-10 text-foreground transition-opacity hover:opacity-60 text-body-sm font-strong`}
 									>
 										{dictionary.navigation[item.key]}
 									</Link>

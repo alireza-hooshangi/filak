@@ -90,7 +90,7 @@
 }
 
 :lang(fa) {
-	--text-heading-sm-size: 32px;
+	/* --text-heading-sm-size: 32px;
 	--text-heading-sm-leading: 32px;
 	--text-heading-md-size: 40px;
 	--text-heading-md-leading: 48px;
@@ -101,7 +101,20 @@
 	--text-body-md-size: 24px;
 	--text-body-md-leading: 32px;
 	--font-subtle-weight: 400;
-	--font-strong-weight: 700;
+	--font-strong-weight: 700; */
+
+	--text-heading-sm-size: 24px;
+	--text-heading-sm-leading: 32px;
+	--text-heading-md-size: 32px;
+	--text-heading-md-leading: 40px;
+	--text-heading-lg-size: 48px;
+	--text-heading-lg-leading: 56px;
+	--text-body-sm-size: 16px;
+	--text-body-sm-leading: 28px;
+	--text-body-md-size: 20px;
+	--text-body-md-leading: 32px;
+	--font-subtle-weight: 400;
+	--font-strong-weight: 600;
 }
 
 @theme {
