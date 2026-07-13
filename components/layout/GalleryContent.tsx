@@ -64,20 +64,16 @@ export default function GalleryContent({ lang, content }: GalleryContentProps) {
 		offset: ["start end", "start start"],
 	});
 	const restingWidth = Math.min(1088, Math.max(0, viewportWidth - 48));
+	const cornerRadius = viewportWidth < 768 ? 32 : 48;
+	const coveredWidth = viewportWidth + cornerRadius * 2;
 	const panelWidth = useTransform(
 		scrollYProgress,
 		[0, 0.25, 0.85],
 		[
-			reduceMotion ? viewportWidth : restingWidth,
-			reduceMotion ? viewportWidth : restingWidth,
-			viewportWidth,
+			reduceMotion ? coveredWidth : restingWidth,
+			reduceMotion ? coveredWidth : restingWidth,
+			coveredWidth,
 		],
-	);
-	const restingRadius = viewportWidth < 768 ? 32 : 48;
-	const cornerRadius = useTransform(
-		scrollYProgress,
-		[0, 0.55, 0.85],
-		[reduceMotion ? 0 : restingRadius, reduceMotion ? 0 : restingRadius, 0],
 	);
 
 	useEffect(() => {
@@ -103,14 +99,14 @@ export default function GalleryContent({ lang, content }: GalleryContentProps) {
 				<div className="overflow-hidden">
 					<motion.div
 						aria-hidden="true"
-						className="pointer-events-none absolute inset-y-0 left-1/2 max-w-full -translate-x-1/2 bg-yellow-300"
+						className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 bg-linear-to-b from-bg-tertiary to-bg-tertiary/0"
 						style={{
 							width: panelWidth,
 							borderRadius: cornerRadius,
 						}}
 					/>
 
-					<div className="relative z-10 flex flex-col justify-center py-16 space-y-16 lg:py-48 lg:space-y-48">
+					<div className="relative z-10 flex flex-col justify-center pt-16 space-y-16 lg:pt-48 lg:space-y-48">
 						<div className="flex items-center justify-center w-full max-w-5xl mx-auto">
 							<h2 className="px-1 text-heading-lg font-strong text-fg">
 								{content.title}

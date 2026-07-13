@@ -13,6 +13,10 @@
 		"title": "Filak Kindergarten",
 		"description": "The Beginning of Children's Growth and Flourishing"
 	},
+	"enroll": {
+		"title": "Visiting Filak is your first step",
+		"action": "Schedule a Tour"
+	},
 	"ageGroups": {
 		"title": "Age Groups",
 		"intro": [

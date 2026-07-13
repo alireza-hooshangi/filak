@@ -6,6 +6,7 @@ import AgeGroups from "@/components/layout/AgeGroups";
 import Facilities from "@/components/layout/Facilities";
 import About from "@/components/layout/About";
 import Gallery from "@/components/layout/Gallery";
+import Enroll from "@/components/layout/Enroll";
 
 type HomePageProps = {
 	params: Promise<{
@@ -27,6 +28,7 @@ export default async function HomePage({ params }: HomePageProps) {
 			<Facilities lang={lang} />
 			<About lang={lang} />
 			<Gallery lang={lang} />
+			<Enroll lang={lang} />
 		</>
 	);
 }
