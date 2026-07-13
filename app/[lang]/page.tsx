@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 
-import { getDictionary, isLocale } from "@/lib/i18n";
+import { isLocale } from "@/lib/i18n";
 import Hero from "@/components/layout/Hero";
 import AgeGroups from "@/components/layout/AgeGroups";
+import Facilities from "@/components/layout/Facilities";
 
 type HomePageProps = {
 	params: Promise<{
@@ -17,12 +18,11 @@ export default async function HomePage({ params }: HomePageProps) {
 		notFound();
 	}
 
-	const dictionary = getDictionary(lang);
-
 	return (
 		<>
 			<Hero lang={lang} />
 			<AgeGroups lang={lang} />
+			<Facilities lang={lang} />
 		</>
 	);
 }

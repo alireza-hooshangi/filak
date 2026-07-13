@@ -54,6 +54,25 @@
 			}
 		]
 	},
+	"facilities": {
+		"title": "Facilities",
+		"previous": "Previous facility",
+		"next": "Next facility",
+		"close": "Close facility details",
+		"openDetails": "Learn more about",
+		"items": [
+			{ "id": "qualifiedStaff", "label": "Qualified Staff", "description": "Our experienced and caring educators support every child with thoughtful guidance, individual attention, and age-appropriate learning throughout the day." },
+			{ "id": "safetyMonitoring", "label": "Safety & Monitoring", "description": "Carefully planned safety measures and continuous monitoring help us maintain a secure, calm environment for children, families, and staff." },
+			{ "id": "artCreativity", "label": "Art & Creativity", "description": "A welcoming creative space gives children room to paint, build, imagine, and express their ideas through hands-on artistic experiences." },
+			{ "id": "indoorPlayroom", "label": "Indoor Playroom", "description": "Our indoor playroom provides a comfortable setting for movement, collaborative games, and active discovery in every season." },
+			{ "id": "outdoorPlayground", "label": "Outdoor Playground", "description": "The outdoor playground encourages fresh-air exploration, physical confidence, and joyful social play in a child-friendly setting." },
+			{ "id": "kitchenDining", "label": "Kitchen & Dining", "description": "A clean kitchen and inviting dining area support nutritious meals while helping children practise healthy and social mealtime habits." },
+			{ "id": "restArea", "label": "Rest Area", "description": "Our quiet rest area offers children a peaceful, comfortable place to relax and recharge as part of their daily rhythm." },
+			{ "id": "labLibrary", "label": "Lab & Library", "description": "Books, simple experiments, and discovery-based activities invite children to ask questions and develop an early love of learning." },
+			{ "id": "storytellingHall", "label": "Storytelling Hall", "description": "A dedicated storytelling space brings books and imagination to life through shared reading, performance, and creative conversation." },
+			{ "id": "mediaRoom", "label": "Media Room", "description": "The media room supports carefully selected visual and interactive learning experiences designed for young children." }
+		]
+	},
 	"footer": {
 		"pagesTitle": "Explore",
 		"facilitiesTitle": "Facilities",

@@ -207,7 +207,7 @@ export default function AgeGroupsContent({
 								className="grid grid-cols-[1fr_384px] justify-between gap-12"
 							>
 								<div
-									className={`flex flex-col justify-between max-w-sm gap-16`}
+									className={`flex flex-col justify-between gap-16`}
 								>
 									<div className={`flex flex-col space-y-1`}>
 										<h3 className="text-heading-md font-strong text-fg">
